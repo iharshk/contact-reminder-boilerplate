@@ -1,0 +1,25 @@
+<form [formGroup]="loginForm" *ngIf="loginForm">
+
+    <div class="jumbotron text-center">
+      <h1>Plese Log-in!!</h1>
+    </div>
+  
+    <!-- <ng-container *ngIf=""> -->
+      <div class="container containerWidth-md-1040 loginContainer text-center">
+        <!-- <div class="  "> -->
+          <div><label><b> Mobile Number <sup>*</sup> </b></label></div>
+          <div><input type="number" formControlName="mobileNo"></div>
+          <app-show-error [control]="form.mobileNo"> </app-show-error>
+        <!-- </div> -->
+        <br>
+        <div> <label for="password"><b> Enter Password <sup>*</sup> </b></label> </div>
+        <div> <input type="text" formControlName="password"> </div>
+        <app-show-error [control]="form.password"> </app-show-error>
+        <div style="margin-top: 10px">
+          <button type="submit" class="btn btn-success" (click)="onSubmit()"> Submit </button>
+        </div>
+        
+      </div>
+    <!-- </ng-container> -->
+  
+  </form>

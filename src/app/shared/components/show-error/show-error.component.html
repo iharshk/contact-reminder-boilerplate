@@ -1,0 +1,5 @@
+<div *ngIf="shouldShowErrors()">
+  <span *ngFor="let error of listOfErrors()" class="errorMsg">
+    <i class="fa fa-exclamation-triangle"></i> {{error}}
+  </span>
+</div>

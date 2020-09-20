@@ -1,0 +1,52 @@
+<form [formGroup]="signupForm">
+
+  <div class="jumbotron text-center">
+    <h1>Plese Sign-up!!</h1>
+  </div>
+
+  <ng-container *ngIf="!otpSubmitted">
+    <div class="container containerWidth-md-1040 loginContainer">
+      <div class=" text-center">
+        <div><label><b> Mobile Number <sup>*</sup> </b></label></div>
+        <div><input type="number" formControlName="mobileNo"></div>
+        <app-show-error [control]="form.mobileNo"> </app-show-error>
+        <br>
+        <div><button class="btn btn-success" (click)="getOtp()">Get Otp</button></div>
+      </div>
+      <br>
+      <div *ngIf="invalid">
+        <div class=" text-center">
+          <div><label><b> OTP </b></label> </div>
+          <input minlength="6" formControlName="otp">
+        </div>
+        <br>
+        <div class=" text-center">
+          <button class="btn btn-success getOtp" (click)="createPass()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="otpSubmitted">
+    <div class="container containerWidth-md-1040 loginContainer">
+      <div class="text-center">
+        <div> <label><b> Mobile Number </b></label> </div>
+        <div> <input type="number" disabled formControlName="mobileNo"> </div>
+
+        <div> <label for="password"><b> Enter Password <sup>*</sup> </b></label> </div>
+        <div> <input type="text" formControlName="password"> </div>
+        <app-show-error [control]="form.password"> </app-show-error>
+
+        <div style="margin-top:10px"><label for="confirm_password"><b> Confirm Password <sup>*</sup></b></label></div>
+        <div> <input type="text" formControlName="confirm_password"> </div>
+        <app-show-error [control]="form.confirm_password"> </app-show-error>
+
+        <p *ngIf="pass_mismatch"><i class="fa fa-exclamation-triangle"></i> Enter Same Password In Both Field</p>
+        <div style="margin-top: 10px">
+          <button type="submit" class="btn btn-success" (click)="onSubmit()"> Submit </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</form>

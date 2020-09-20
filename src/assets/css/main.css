@@ -1,0 +1,28 @@
+
+.loginContainer {
+  max-width: 385px;
+  padding: 38px 35px;
+  border-radius: 3px;
+  /* box-shadow: 0 0 20px 0 #c1c1c1; */
+  border: 1px solid #ededed;
+  border-bottom: 1px solid #d7d8d6;
+  margin-bottom: 62px;
+  background-color: rgb(229, 221, 230);
+}
+
+.getOtp {
+  color: white;
+  background: red;
+}
+
+.errorMsg, .fa {
+  color: #a8000b;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
