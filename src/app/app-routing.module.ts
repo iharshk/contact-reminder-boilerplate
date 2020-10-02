@@ -12,7 +12,11 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: "./modules/user-journey/user-journey.module#UserJourneyModule",
-  }
+  },
+  {
+    path: 'contacts',
+    loadChildren: "./modules/user-details/user-details.module#UserDetailsModule",
+  },
 ];
 
 @NgModule({

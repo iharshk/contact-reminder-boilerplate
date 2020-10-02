@@ -4,6 +4,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { RequestService } from 'src/app/shared/services/request.service';
 import { environment } from 'src/environments/environment'
 import { FormService } from 'src/app/shared/services/form.service';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,7 +25,8 @@ export class SignupPageComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private _requestService: RequestService,
-    private _formService: FormService
+    private _formService: FormService,
+    private router : Router
   ) { }
 
   ngOnInit() {
@@ -86,6 +89,7 @@ export class SignupPageComponent implements OnInit {
           console.log(res);
           if(res.data && res.data.sessionId){
             localStorage.setItem("access-token", res.data.sessionId);
+            this.router.navigate(['/contacts'])
           }
           
         }, err => {
@@ -98,8 +102,5 @@ export class SignupPageComponent implements OnInit {
       this._formService.markFormGroupTouched(this.signupForm)
     }
   }
-
-
-  
 
 }
